@@ -9,7 +9,7 @@ npm-debug.log*
 .vercel
 next-env.d.ts
 tsconfig.tsbuildinfo
-.shoot.mjs
+
+# local visual-audit scripts (playwright, run against a local build)
+.*.mjs
 .restart.sh
-.probe.mjs
-.err.mjs
