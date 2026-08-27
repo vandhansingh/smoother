@@ -91,3 +91,14 @@ lib/pathStory.ts     the four formations and the geometry that interpolates betw
 ```
 
 Companies, metrics and testimonials on the page are invented for the study.
+
+## Single-file demo
+
+`npm run demo` produces `out/signalarc-demo.html` — the whole site as one
+self-contained document with no external requests: the compiled stylesheet, every
+font and a client-only bundle of the same components, all inlined.
+
+It mounts rather than hydrates. The target is a host that owns `<html>`, `<head>`
+and `<body>` itself, so there is no server markup to hydrate against and no
+mismatch to recover from; `demo/entry.tsx` mirrors `app/layout.tsx` minus the
+pieces that only exist server-side.

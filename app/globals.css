@@ -73,6 +73,9 @@
   }
 
   html {
+    /* The palette is single-theme by design; tell the UA so scrollbars
+       and form controls are painted light even inside a dark host. */
+    color-scheme: light;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: auto; /* Lenis owns scrolling */
   }
