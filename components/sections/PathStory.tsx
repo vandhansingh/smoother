@@ -185,9 +185,9 @@ export default function PathStory() {
       // indefinitely.
       backgrounds.slice(1).forEach((bg, i) => {
         const dark = i >= 1;
-        tl.to(stage.current, { backgroundColor: bg, duration: 0.18 }, i + 0.34);
+        tl.to(wrapper.current, { backgroundColor: bg, duration: 0.18 }, i + 0.34);
         tl.set(
-          stage.current,
+          wrapper.current,
           {
             '--rgb-text': dark ? '243 239 231' : '23 19 16',
             '--rgb-text-muted': dark ? '171 161 146' : '110 99 87',
@@ -280,17 +280,21 @@ export default function PathStory() {
 
   /* ---------- pinned stage ---------- */
   return (
-    <section id="story" ref={wrapper} className="relative">
+    /* The ground and the object tokens live on the wrapper, not on the
+       pinned element: ScrollTrigger owns the pinned element's inline
+       style and rewrites it wholesale on every refresh, which silently
+       drops any custom property set there. The wrapper is untouched, its
+       background shows through the transparent stage, and the object
+       tokens it scrubs (declared in globals.css) cascade down. */
+    <section
+      id="story"
+      ref={wrapper}
+      className="relative text-ink"
+      style={{ backgroundColor: backgrounds[0] }}
+    >
       <div
         ref={stage}
-        className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden text-ink"
-        style={
-          {
-            backgroundColor: backgrounds[0],
-            '--rgb-obj': '23 19 16',
-            '--rgb-obj-alt': '58 92 78',
-          } as React.CSSProperties
-        }
+        className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden"
       >
         <div className="shell w-full py-[clamp(4rem,8vh,6rem)]">
           {/* progress rail */}

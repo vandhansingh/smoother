@@ -35,6 +35,13 @@
     --rgb-text-muted: 102 92 80;
     --rgb-border: 220 212 196;
 
+    /* Object tones for the path-storytelling formations. Declared here
+       rather than inline: GSAP reads a start value off the computed
+       style before it scrubs them, and a property that exists only as an
+       inline declaration reads back as 0. */
+    --rgb-obj: 23 19 16;
+    --rgb-obj-alt: 58 92 78;
+
     /* motion */
     --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-premium-in: cubic-bezier(0.62, 0, 0.2, 1);
