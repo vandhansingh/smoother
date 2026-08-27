@@ -51,7 +51,7 @@ export default function AssetTile({
       <span aria-hidden className={`mx-[12%] mb-[9%] h-[6%] w-[62%] rounded-pill ${p.bar}`} />
       <span aria-hidden className={`mx-[12%] mb-[12%] h-[6%] w-[38%] rounded-pill ${p.bar}`} />
       {label && (
-        <span className="absolute left-[12%] top-[12%] text-[0.5625rem] font-medium uppercase tracking-[0.12em] text-bg/70">
+        <span className="absolute left-[10%] top-[10%] rounded-xs bg-ink/55 px-1.5 py-0.5 text-[0.5625rem] font-medium uppercase tracking-[0.12em] text-bg">
           {label}
         </span>
       )}

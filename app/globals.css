@@ -19,7 +19,7 @@
     --color-secondary: #2e4a40;
     --color-accent: #e3a340;
     --color-text: #171310;
-    --color-text-muted: #6e6357;
+    --color-text-muted: #665c50;
     --color-border: #dcd4c4;
 
     /* channel forms consumed by tailwind's <alpha-value> syntax */
@@ -32,7 +32,7 @@
     --rgb-secondary: 46 74 64;
     --rgb-accent: 227 163 64;
     --rgb-text: 23 19 16;
-    --rgb-text-muted: 110 99 87;
+    --rgb-text-muted: 102 92 80;
     --rgb-border: 220 212 196;
 
     /* motion */

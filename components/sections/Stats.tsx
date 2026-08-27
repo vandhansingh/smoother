@@ -45,7 +45,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="results" className="on-dark relative overflow-hidden bg-surface-alt py-section text-ink">
+    <section id="results" className="on-dark relative overflow-hidden bg-surface-alt pb-section pt-section-sm text-ink">
       {/* one quiet ground mark, echoing the closed loop from the story above */}
       <div aria-hidden className="pointer-events-none absolute -right-40 top-1/2 -z-0 hidden -translate-y-1/2 lg:block">
         <svg viewBox="0 0 500 500" className="w-[38rem] text-bg/[0.04]">

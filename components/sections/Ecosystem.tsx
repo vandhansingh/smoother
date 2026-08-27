@@ -117,10 +117,10 @@ export default function Ecosystem() {
         </div>
 
         {/* the loop, drawn */}
-        <div aria-hidden className="relative mt-16 hidden h-16 lg:block">
+        <div aria-hidden className="relative mt-14 hidden h-16 lg:block">
           <svg viewBox="0 0 1200 64" preserveAspectRatio="none" className="h-full w-full text-line">
             <motion.path
-              d="M170 64 C 170 14, 360 10, 600 10 C 840 10, 1030 14, 1030 64"
+              d="M292 64 C 292 16, 430 10, 600 10 C 770 10, 1058 16, 1058 64"
               fill="none"
               stroke="currentColor"
               strokeWidth="1"
@@ -141,7 +141,7 @@ export default function Ecosystem() {
               cy="6"
             />
           </svg>
-          <span className="absolute left-1/2 top-4 -translate-x-1/2 bg-bg-secondary px-3 text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
+          <span className="absolute left-1/2 top-4 -translate-x-1/2 bg-bg-secondary px-4 text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
             Every result re-enters the brief
           </span>
         </div>
@@ -150,7 +150,7 @@ export default function Ecosystem() {
             to their new size rather than snapping */}
         <div
           ref={container}
-          className="mt-10 grid gap-3 lg:mt-6 lg:grid-flow-col lg:auto-cols-fr"
+          className="mt-10 grid gap-3 lg:mt-0 lg:grid-flow-col lg:auto-cols-fr"
         >
           {pillars.map((p, i) => {
             const isActive = i === active;

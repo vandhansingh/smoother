@@ -15,6 +15,8 @@ const config: Config = {
         'surface-alt': 'rgb(var(--rgb-surface-alt) / <alpha-value>)',
         primary: 'rgb(var(--rgb-primary) / <alpha-value>)',
         'primary-dark': 'rgb(var(--rgb-primary-dark) / <alpha-value>)',
+        /* clay lifted for dark grounds, where the base tone falls under 4.5:1 */
+        'primary-lift': 'rgb(216 111 76 / <alpha-value>)',
         secondary: 'rgb(var(--rgb-secondary) / <alpha-value>)',
         accent: 'rgb(var(--rgb-accent) / <alpha-value>)',
         ink: 'rgb(var(--rgb-text) / <alpha-value>)',

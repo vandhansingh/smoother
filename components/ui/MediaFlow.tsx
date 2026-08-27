@@ -75,7 +75,13 @@ export default function MediaFlow({ className = '', tone = 'light' }: Props) {
                 <span
                   className={[
                     'w-9 text-right text-[0.6875rem] font-medium tabular-nums',
-                    c.pace.startsWith('-') ? 'text-primary' : dark ? 'text-accent' : 'text-secondary',
+                    c.pace.startsWith('-')
+                      ? dark
+                        ? 'text-primary-lift'
+                        : 'text-primary'
+                      : dark
+                        ? 'text-accent'
+                        : 'text-secondary',
                   ].join(' ')}
                 >
                   {c.pace}

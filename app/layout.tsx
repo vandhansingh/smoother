@@ -53,7 +53,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${inter.variable}`}>
+    <html lang="en-GB" className={`${interTight.variable} ${inter.variable}`}>
       <body>
         <a
           href="#main"

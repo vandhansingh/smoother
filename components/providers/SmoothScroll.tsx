@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 
@@ -69,5 +70,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
   }, []);
 
-  return <>{children}</>;
+  /* reducedMotion="user" hands framer the OS preference, so every
+     transform-based entrance resolves straight to its end state while
+     opacity still carries the reveal. GSAP-driven work checks the same
+     preference itself; the CSS backstop in globals covers the rest. */
+  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

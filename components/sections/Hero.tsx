@@ -70,7 +70,7 @@ export default function Hero() {
               as="h1"
               by="line"
               text={['Make the work.', 'Move the market.', 'Know why it moved.']}
-              className="mt-6 text-[clamp(2.75rem,5.2vw,5rem)] font-medium leading-[0.94] tracking-[-0.045em]"
+              className="mt-6 text-[clamp(2.5rem,5.2vw,5rem)] font-medium leading-[0.94] tracking-[-0.045em]"
               lineClassName="[&:nth-child(3)]:text-primary"
               delay={heroBeats.headline}
               stagger={0.13}

@@ -81,7 +81,7 @@ export default function Media() {
           <div className="order-1 lg:order-2 lg:col-span-5 lg:col-start-8">
             <FadeUp>
               <p className="eyebrow flex items-center gap-3">
-                <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-primary text-[0.5625rem] font-semibold text-bg">
+                <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-primary-dark text-[0.625rem] font-semibold text-bg">
                   2
                 </span>
                 Media

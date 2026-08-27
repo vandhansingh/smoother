@@ -103,7 +103,7 @@ function Chapter({
   return (
     <div ref={innerRef} className={`text-ink ${className}`}>
       <span className="eyebrow flex items-center gap-3">
-        <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-primary text-[0.5625rem] font-semibold text-bg">
+        <span className="flex h-5 w-5 items-center justify-center rounded-pill bg-primary-dark text-[0.625rem] font-semibold text-bg">
           {index + 1}
         </span>
         {chapter.tag}
@@ -193,7 +193,7 @@ export default function PathStory() {
             '--rgb-text-muted': dark ? '171 161 146' : '110 99 87',
             '--rgb-border': dark ? '68 60 51' : '220 212 196',
             '--rgb-obj': dark ? '243 239 231' : '23 19 16',
-            '--rgb-obj-alt': dark ? '124 158 140' : '46 74 64',
+            '--rgb-obj-alt': dark ? '124 158 140' : '58 92 78',
             '--rgb-primary': dark ? '216 111 76' : '185 78 46',
             '--rgb-accent': dark ? '233 178 92' : '227 163 64',
           },
@@ -256,7 +256,7 @@ export default function PathStory() {
                     backgroundColor: backgrounds[i],
                     ...((i >= 2
                       ? { '--rgb-obj': '243 239 231', '--rgb-obj-alt': '124 158 140' }
-                      : { '--rgb-obj': '23 19 16', '--rgb-obj-alt': '46 74 64' }) as React.CSSProperties),
+                      : { '--rgb-obj': '23 19 16', '--rgb-obj-alt': '58 92 78' }) as React.CSSProperties),
                   }}
                 >
                   <svg viewBox={`0 0 ${STAGE_W} ${STAGE_H}`} className="w-full" aria-hidden>
@@ -288,7 +288,7 @@ export default function PathStory() {
           {
             backgroundColor: backgrounds[0],
             '--rgb-obj': '23 19 16',
-            '--rgb-obj-alt': '46 74 64',
+            '--rgb-obj-alt': '58 92 78',
           } as React.CSSProperties
         }
       >
