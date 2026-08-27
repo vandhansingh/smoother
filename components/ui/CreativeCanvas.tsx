@@ -40,7 +40,7 @@ export default function CreativeCanvas({ className = '', tone = 'light', compact
             className="w-full transition-[aspect-ratio] duration-slow ease-premium"
           />
           <div className="flex flex-wrap gap-1.5">
-            {locales.slice(0, compact ? 4 : 6).map((l, i) => (
+            {locales.slice(0, compact ? 4 : 5).map((l, i) => (
               <motion.span
                 key={l}
                 initial={{ opacity: 0, y: 6 }}

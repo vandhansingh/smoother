@@ -55,6 +55,10 @@
     --rgb-border: 60 52 44;
     --rgb-surface: 32 27 23;
     --rgb-background: 22 19 16;
+    /* clay is lifted on dark grounds so large type clears 3:1 and body
+       copy set in it stays readable */
+    --rgb-primary: 216 111 76;
+    --rgb-accent: 233 178 92;
   }
 
   * {
@@ -111,22 +115,13 @@
     @apply h-px w-full bg-line;
   }
 
-  /* Clip-path reveal primitives used by the motion components. */
+  /* Clip-path reveal primitives. Units are kept identical on every
+     side so JS keyframe interpolation never sees a px/% mismatch. */
   .clip-hidden {
-    clip-path: inset(0 0 100% 0);
+    clip-path: inset(0% 0% 100% 0%);
   }
   .clip-shown {
-    clip-path: inset(0 0 0% 0);
-  }
-
-  .grain {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.32;
-    mix-blend-mode: multiply;
-    background-image: var(--grain-url);
-    background-size: 220px 220px;
+    clip-path: inset(0% 0% 0% 0%);
   }
 }
 

@@ -28,33 +28,6 @@ export default function MediaFlow({ className = '', tone = 'light' }: Props) {
       className={className}
     >
       <div className="relative p-4 sm:p-5">
-        {/* connective routing drawn behind the rows */}
-        <svg
-          aria-hidden
-          viewBox="0 0 100 220"
-          preserveAspectRatio="none"
-          className={`pointer-events-none absolute left-6 top-16 hidden h-[calc(100%-6rem)] w-10 sm:block ${dark ? 'text-bg/25' : 'text-line'}`}
-        >
-          {channels.map((_, i) => (
-            <motion.path
-              key={i}
-              d={`M4 4 C 4 ${20 + i * 22}, 40 ${18 + i * 42}, 96 ${20 + i * 44}`}
-              stroke="currentColor"
-              strokeWidth="1"
-              fill="none"
-              vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.18 + i * 0.05,
-                ease: EASE_PREMIUM as unknown as number[],
-              }}
-            />
-          ))}
-        </svg>
-
         <div className={`mb-4 flex items-baseline justify-between border-b pb-3 ${dark ? 'border-white/10' : 'border-line'}`}>
           <span className={`text-[0.6875rem] uppercase tracking-[0.14em] ${dark ? 'text-bg/40' : 'text-muted'}`}>
             Allocation
@@ -62,7 +35,12 @@ export default function MediaFlow({ className = '', tone = 'light' }: Props) {
           <span className="text-[0.8125rem] font-medium tabular-nums">$1.21M / week</span>
         </div>
 
-        <ul className="flex flex-col gap-3.5">
+        {/* one plan, five routes: a spine with a tick into every channel */}
+        <ul className="relative flex flex-col gap-3.5 sm:pl-6">
+          <span
+            aria-hidden
+            className={`absolute bottom-3 left-0 top-3 hidden w-px sm:block ${dark ? 'bg-white/15' : 'bg-line'}`}
+          />
           {channels.map((c, i) => (
             <motion.li
               key={c.name}
@@ -70,9 +48,17 @@ export default function MediaFlow({ className = '', tone = 'light' }: Props) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: 0.1 + i * 0.05, ease: EASE_PREMIUM as unknown as number[] }}
-              className="grid grid-cols-[minmax(0,7rem)_minmax(0,1fr)_auto] items-center gap-3 sm:gap-4"
+              className="relative grid grid-cols-[minmax(0,7rem)_minmax(0,1fr)_auto] items-center gap-3 sm:gap-4"
             >
-              <span className="truncate text-[0.8125rem] font-medium sm:pl-8">{c.name}</span>
+              <motion.span
+                aria-hidden
+                className={`absolute -left-6 top-1/2 hidden h-px sm:block ${dark ? 'bg-white/15' : 'bg-line'}`}
+                initial={{ width: 0 }}
+                whileInView={{ width: 16 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, delay: 0.2 + i * 0.05, ease: EASE_PREMIUM as unknown as number[] }}
+              />
+              <span className="truncate text-[0.8125rem] font-medium">{c.name}</span>
 
               <span className={`relative h-1.5 overflow-hidden rounded-pill ${dark ? 'bg-white/10' : 'bg-bg-secondary'}`}>
                 <motion.span

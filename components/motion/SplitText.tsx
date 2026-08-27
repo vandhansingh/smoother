@@ -79,7 +79,7 @@ export default function SplitText({
               return (
                 <motion.span
                   key={`${li}-${ui}`}
-                  className="inline-block whitespace-pre will-transform"
+                  className={`inline-block will-transform ${by === 'line' ? '' : 'whitespace-pre'}`}
                   variants={{
                     hidden: { y: '110%', opacity: 0 },
                     show: {

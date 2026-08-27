@@ -172,9 +172,9 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.24 } }}
+            initial={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }}
+            animate={{ opacity: 1, clipPath: 'inset(0% 0% 0% 0%)' }}
+            exit={{ opacity: 0, clipPath: 'inset(0% 0% 100% 0%)', transition: { duration: 0.24 } }}
             transition={{ duration: 0.42, ease: EASE_PREMIUM as unknown as number[] }}
             className="border-t border-line bg-bg lg:hidden"
           >

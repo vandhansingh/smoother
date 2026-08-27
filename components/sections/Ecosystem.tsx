@@ -120,7 +120,7 @@ export default function Ecosystem() {
         <div aria-hidden className="relative mt-16 hidden h-16 lg:block">
           <svg viewBox="0 0 1200 64" preserveAspectRatio="none" className="h-full w-full text-line">
             <motion.path
-              d="M120 62 C 120 8, 380 6, 600 6 C 820 6, 1080 8, 1080 62"
+              d="M170 64 C 170 14, 360 10, 600 10 C 840 10, 1030 14, 1030 64"
               fill="none"
               stroke="currentColor"
               strokeWidth="1"

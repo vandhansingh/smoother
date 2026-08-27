@@ -67,16 +67,16 @@ export default function HeroVisual() {
       {/* layer 3 — primary product surface */}
       <Parallax speed={0.62}>
         <motion.div {...enter(heroBeats.visual)} className="relative">
-          <CreativeCanvas compact className="origin-bottom-left lg:rotate-[-0.6deg]" />
+          <CreativeCanvas className="origin-bottom-left lg:rotate-[-0.6deg]" />
         </motion.div>
       </Parallax>
 
       {/* layer 4 — performance card, foreground */}
-      <Parallax speed={0.95} className="absolute -right-3 -top-8 z-20 sm:-right-8 lg:-right-14">
+      <Parallax speed={0.95} className="absolute right-0 -top-9 z-20 sm:-right-6 lg:-right-8">
         <FloatingElement amplitude={9} rotate={0.6} duration={6.2} delay={0.4}>
           <motion.div
             {...enter(heroBeats.visual + 0.18)}
-            className="w-[10.5rem] rounded-md border border-line bg-surface p-3.5 shadow-lift sm:w-[12.5rem]"
+            className="w-[10.5rem] rounded-md border border-line bg-surface p-3.5 shadow-lift sm:w-[11.5rem]"
           >
             <span className="flex items-center gap-1.5 text-[0.625rem] uppercase tracking-[0.14em] text-muted">
               <Sparkles className="h-3 w-3 text-accent" />

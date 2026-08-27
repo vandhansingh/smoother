@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="shell">
         <div className="grid items-center gap-x-8 gap-y-[clamp(4rem,9vw,6rem)] lg:grid-cols-12">
           {/* ---------- copy ---------- */}
-          <div className="lg:col-span-6 xl:col-span-6">
+          <div className="min-w-0 lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function Hero() {
               as="h1"
               by="line"
               text={['Make the work.', 'Move the market.', 'Know why it moved.']}
-              className="mt-6 text-display font-medium"
+              className="mt-6 text-[clamp(2.75rem,5.2vw,5rem)] font-medium leading-[0.94] tracking-[-0.045em]"
               lineClassName="[&:nth-child(3)]:text-primary"
               delay={heroBeats.headline}
               stagger={0.13}
@@ -118,7 +118,7 @@ export default function Hero() {
           </div>
 
           {/* ---------- visual ---------- */}
-          <div className="lg:col-span-6 xl:col-span-6">
+          <div className="min-w-0 lg:col-span-5 lg:col-start-8">
             <HeroVisual />
           </div>
         </div>
