@@ -34,10 +34,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Lenis owns scrolling, so `overflow: hidden` on the body is not
+  // enough to lock the page behind the sheet — the instance has to be
+  // stopped. The body rule stays as the no-Lenis fallback.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) window.__lenis?.stop();
+    else window.__lenis?.start();
     return () => {
       document.body.style.overflow = '';
+      window.__lenis?.start();
     };
   }, [open]);
 

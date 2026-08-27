@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useHasFinePointer, useReducedMotion } from '@/lib/hooks';
 
@@ -16,6 +16,7 @@ export default function Cursor() {
   const reduced = useReducedMotion();
   const [label, setLabel] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
+  const visibleRef = useRef(false);
 
   const mx = useMotionValue(-100);
   const my = useMotionValue(-100);
@@ -30,6 +31,7 @@ export default function Cursor() {
       my.set(e.clientY);
 
       const target = (e.target as HTMLElement)?.closest?.('[data-cursor]') as HTMLElement | null;
+      visibleRef.current = !!target;
       if (target) {
         setVisible(true);
         setLabel(target.dataset.cursorLabel ?? null);
@@ -39,12 +41,28 @@ export default function Cursor() {
       }
     };
 
-    const onLeave = () => setVisible(false);
+    const onLeave = () => {
+      visibleRef.current = false;
+      setVisible(false);
+    };
+
+    // The ring only knows what is under the pointer at the moment the
+    // pointer moves. If the page scrolls beneath a stationary cursor the
+    // target underneath has changed, so retire the ring and let the next
+    // move re-acquire it rather than leave a stale label floating.
+    const onScroll = () => {
+      if (!visibleRef.current) return; // no state churn on the scroll path
+      visibleRef.current = false;
+      setVisible(false);
+      setLabel(null);
+    };
 
     window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     document.addEventListener('pointerleave', onLeave);
     return () => {
       window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('scroll', onScroll);
       document.removeEventListener('pointerleave', onLeave);
     };
   }, [fine, reduced, mx, my]);
