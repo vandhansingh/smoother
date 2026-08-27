@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS
+   Palette: refined bone / clay / ink / ochre / pine
+   Distribution ~ 65% neutral, 18% secondary surfaces,
+   12% primary clay, 5% ochre + pine accents.
+   ============================================================ */
+@layer base {
+  :root {
+    --color-background: #f3efe7;
+    --color-background-secondary: #e7e1d4;
+    --color-surface: #fbf9f4;
+    --color-surface-alt: #161310;
+    --color-primary: #b94e2e;
+    --color-primary-dark: #8c3a22;
+    --color-secondary: #2e4a40;
+    --color-accent: #e3a340;
+    --color-text: #171310;
+    --color-text-muted: #6e6357;
+    --color-border: #dcd4c4;
+
+    /* channel forms consumed by tailwind's <alpha-value> syntax */
+    --rgb-background: 243 239 231;
+    --rgb-background-secondary: 231 225 212;
+    --rgb-surface: 251 249 244;
+    --rgb-surface-alt: 22 19 16;
+    --rgb-primary: 185 78 46;
+    --rgb-primary-dark: 140 58 34;
+    --rgb-secondary: 46 74 64;
+    --rgb-accent: 227 163 64;
+    --rgb-text: 23 19 16;
+    --rgb-text-muted: 110 99 87;
+    --rgb-border: 220 212 196;
+
+    /* motion */
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-premium-in: cubic-bezier(0.62, 0, 0.2, 1);
+    --duration-micro: 140ms;
+    --duration-fast: 160ms;
+    --duration-medium: 380ms;
+    --duration-slow: 750ms;
+
+    /* layout */
+    --header-height: 96px;
+    --header-height-condensed: 72px;
+  }
+
+  /* Dark editorial passages invert the token surface without a theme switch. */
+  .on-dark {
+    --rgb-text: 243 239 231;
+    --rgb-text-muted: 168 157 142;
+    --rgb-border: 60 52 44;
+    --rgb-surface: 32 27 23;
+    --rgb-background: 22 19 16;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto; /* Lenis owns scrolling */
+  }
+
+  body {
+    @apply bg-bg text-ink antialiased;
+    font-family: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: 'ss01' 1, 'cv05' 1, 'kern' 1;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-background);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  svg {
+    shape-rendering: geometricPrecision;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-gutter;
+  }
+
+  .eyebrow {
+    @apply text-label font-medium uppercase text-muted;
+  }
+
+  .rule {
+    @apply h-px w-full bg-line;
+  }
+
+  /* Clip-path reveal primitives used by the motion components. */
+  .clip-hidden {
+    clip-path: inset(0 0 100% 0);
+  }
+  .clip-shown {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: var(--grain-url);
+    background-size: 220px 220px;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .gpu { transform: translate3d(0, 0, 0); }
+  .will-transform { will-change: transform; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ============================================================
+   REDUCED MOTION
+   Continuous float, parallax and cursor effects are switched off
+   in JS; this is the CSS backstop for anything declarative.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ambient-float,
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
